@@ -54,7 +54,8 @@
         - distro
         - git+https://github.com/grycap/cpyutils.git@{{ cpyutils_git_branch }}
       executable: "{{pip_exec}}"
-      break_system_packages: true
+      #break_system_packages: true     for ansible >=2.17
+      extra_args: --break-system-packages
     when: python_version.stdout|int >= 3
   
   - name: Install CLUES2 conf files
