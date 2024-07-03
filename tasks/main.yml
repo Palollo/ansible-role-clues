@@ -28,6 +28,12 @@
   - set_fact: pip_exec=pip3
     when: python_version.stdout|int >= 3
 
+  - name: Upgrade pip
+    pip: 
+      name: pip
+      state: latest
+      executable: "{{pip_exec}}"
+
   - name: Install CLUES2 deps
     pip:
       name: 
